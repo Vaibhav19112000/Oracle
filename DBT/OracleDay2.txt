@@ -1,0 +1,96 @@
+create table emptmp
+as
+select * 
+from employee;
+
+create table emptmp1
+as
+select * 
+from employee
+where 1=2;
+
+alter table employee
+add comm number(3);
+
+update employee
+set comm=300;
+
+select eno,ename,sal,comm,sal+comm as "Total Sal"
+from employee;
+
+using nvl
+select eno,ename,sal,comm,(nvl(sal,0)+nvl(comm,0)) as "Total Sal"
+from employee;
+
+
+
+using nvl2
+select eno,ename,sal,comm,(nvl(sal,0)+nvl(comm,0)) as "Total Sal",nvl2(comm,'Good Work','Work hard') as Remark
+from employee;
+update employee
+set comm is null
+where eno=2;
+
+insert into employee(eno,ename,sal)
+values(6,'Yash',6000);
+
+using constraints
+-----------------
+
+product(pid,pname,price,qty)
+
+create table product
+(
+ pid number unique not null,
+ pname varchar2(15) not null,
+ price number(6,2),
+ qty number default 5,
+ constraint chk_price check (price >0) 
+);
+
+insert into product 
+values(1,'Pen',10,150);
+insert into product(pid,pname,price,qty)
+values(2,'Pen',10,150);
+insert into product(pid,pname,price)
+values(3,'Eraser',5);
+insert into product(pid,pname,price)
+values(3,'Eraser',5);
+insert into product(pid,pname,price,cid)
+values(4,'Mobile',5000,20);
+--------------------------------
+Pk and FK
+
+create table catagory
+(cid number,
+ cname varchar2(10),
+ constraint pk_cid primary key(cid)
+);
+
+insert into catagory
+values(10,'Stationary');
+insert into catagory
+values(20,'Electronic');
+
+alter table product
+add cid number;
+
+alter table product
+add constraint fk_cid foreign key(cid) references catagory(cid);
+
+select p.pid,p.pname,p.cid,c.cid,c.cname
+from product p, catagory c
+where p.cid=c.cid;
+
+select p.pid,p.pname,p.cid,c.cid,c.cname
+from product p, catagory c
+where p.cid=c.cid;
+
+alter table product
+drop primary key;
+
+alter table employee
+add constraint pk_eno primary key(eno);
+
+alter table employee
+drop primary key;

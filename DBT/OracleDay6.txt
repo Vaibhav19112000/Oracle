@@ -1,0 +1,110 @@
+list all emplloyees working in Smith's dept
+select ename,deptno
+from emp
+where deptno=(select deptno
+              from emp
+              where ename='SMITH');
+
+
+list emp whose sal range between Truner and Scott
+select sal 
+from emp
+where sal between (select sal
+                  from emp
+                  where ename='TURNER')
+         and
+		 ( select sal
+	          from emp 
+                  where ename='SCOTT');
+--------------------------------------
+corelated queries
+
+Q12 display all employees who earn salary less than avg salary of their dept
+
+select e.ename,e.sal,deptno
+from emp e
+where sal <(select avg(sal)
+           from emp p
+           where e.deptno=p.deptno
+           group by deptno);
+
+
+Q13 Select all depts to which employee is not assigned
+select deptno  
+from dept e
+where not exists (select deptno  
+                  from emp d
+                  where e.deptno=d.deptno
+                  );
+
+select deptno
+from dept e
+where exists(select deptno
+               from emp d
+             where e.deptno=d.deptno);
+              
+ 
+
+insert into emp(empno,ename,deptno)
+values(1111,'Seema',50);
+
+cross join
+===========
+select e.empno,e.ename,e.deptno,d.deptno,d.dname
+from emp e
+cross join dept d;
+
+or
+
+select e.empno,e.ename,e.deptno,d.deptno,d.dname
+from emp e, dept d;
+
+equi join
+=========
+select e.empno,e.ename,e.deptno,d.deptno,d.dname
+from emp e
+inner join dept d
+on e.deptno = d.deptno;
+
+non equi join
+=============
+select e.empno,e.ename,e.deptno,e.sal,s.grade
+from emp e
+inner join salgrade s
+on e.sal between s.losal and s.hisal;
+
+self join
+=========
+select e.empno,e.ename,e.mgr,m.empno,m.ename
+from emp e
+inner join emp m
+on e.mgr = m.empno;
+
+right outer join
+==============
+select e.empno,e.ename,d.deptno,d.dname
+from emp e
+right join dept d
+on e.deptno = d.deptno;
+
+letf outer join
+=============
+select e.empno,e.ename,d.deptno,d.dname
+from emp e
+left join dept d
+on e.deptno = d.deptno;
+
+full outer
+=============================
+select e.empno,e.ename,d.deptno,d.dname
+from emp e
+full join dept d
+on e.deptno = d.deptno;
+
+
+
+ 
+  
+ 
+ 
+

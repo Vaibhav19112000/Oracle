@@ -1,0 +1,48 @@
+﻿-- 1. Find all employees with name ending with R 
+select ename from emp where regexp_like (ename,'.*IN$');
+ 
+--2. Find all employees with name starting with M and ending with R 
+select ename from emp where regexp_like (ename,'^M.*R$');
+
+3. To find all employees with name starting with either M or A
+select ename from emp where regexp_like (ename,'^[MA]'); 
+-- ending with
+select ename from emp where regexp_like (ename,'.*M$|.*R');
+
+4. Find all employees with name having L at 3 rd position
+5. Find all employees with name starting with M has L at 3 rd position and ends with R
+6. To list all employees with name ending by AS
+7. To list all employees with job starting with C and ending with K
+8. Find all employees with name having L at 3 rd position and E at second last position
+9. List the employees name having 'E' as last but one character?
+10.To find all employees with name starting with either M or A and last character as either R or E
+11.To list all employees with job containing L at third position and M at third last position
+12.To list all employees with job startting with C , E at 3rd position and  ending with K
+13.To list all employees with sal is null and name starts with ‘S’
+14.List the details of the employee , whose names start with ‘A’ and end with ‘S’ or whose names contains N as the second 
+   or third character, and ending with either ‘N’ or ‘S’.
+15.List the employees name having letter 'L' as the second character?
+16.List the details of the employee , whose names start with ‘A’ and end with ‘S’ or whose names contains N as the second or 
+   third character, and ending with either ‘N’ or ‘S’.
+17.Find all employees with name starting with A and ending with e, or it may starts with s and end with h
+18.Display all employees with sal >1000 and sal<3000 and job has a at starting position and ends with t.
+19.Write a query display empno, ename, sal , increased sal by 10% and commission for all employees whose name 
+    starts with a,m or s
+20.Select all employee with job is either CLERK or SALESMAN and sal >2000
+21.Display all employees whose name starts with A and ends with either n or s, or works in dept 10
+22.Display all employees who works in either dept 10 or 30 or joined in year 1982
+23.There is a salary hike by 20% . Display the information from emp table as empno,ename,sal,new sal
+24.Find all employees whose sal is divisible by 3
+25.List all the clerks and analysts with salary atleast 1000 in dept 20 and 30
+26 List the employees in dept 20 and 30 who get no commission?
+27.List employees whose name starts with either 'A' or 'S' in dept 20?
+28.List all the employee whoes name does not end with 'S' in dept 20 and 30?
+29.List the employees who are getting some commision with sal > 1500 in dept 30?
+30.List emp working as managers and clerks with Salary atleast 2000 except in dept 10 and 20?
+31.List employees in all dept whose salary not in the range of 2000 to 3000 with the job which is having a string called 'MAN'
+32.Display all the names whose name is having exactly 1 'L'?
+33.Display dept names which are having letter 'O'?
+34.Display the output as shown below,
+35.Scott working as a clerk earns 3000 in dept 20?
+  
+ 

@@ -1,0 +1,27 @@
+--sysdate
+--add_months()
+
+--months_between(date1,date2)
+> select ename,hiredate,floor((months_between(hiredate,'1-jan-2000'))/12) from emp;
+
+--next_day(sysdate,day)
+select next_day(sysdate,'friday') from dual;
+
+--current_timestamp
+select current_timestamp  from dual;
+
+--extract
+extract (month from sysdate)
+extract (year from sysdate)
+extract (day from sysdate)
+
+select * 
+from emp
+where extract(year from hiredate)
+
+select ename,hiredate,floor(months_between(sysdate,hiredate)/12) as years
+from emp
+where floor(months_between(sysdate,hiredate)/12)>40;
+
+--to_date(string)
+select to_date('25-oct-20') from dual;

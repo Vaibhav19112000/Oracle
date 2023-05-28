@@ -1,0 +1,24 @@
+﻿1. Create empty table emp10 with table structure same as emp table.
+2. Solve following using alter table
+add primary key constraint on emp 
+emp ----empno
+3. add foreign key constarint in emp10
+deptno --->> dept(deptno)
+4. add new column in emp10 table netsal with constraint default 1000
+5.Update employee sal    increase sal of each employee by 15 % sal +comm,
+6. change job of smith to senior clerk
+7. increase salary of all employees by 15% if they are earning some commission.
+8. Display all rows with salary starting from 500 till 2000
+9. Display all rows with salary 1250, 3350, 1350
+10. Try working on check, unique , not null and default constraint.
+
+11. To list all records with sal > 2000 and comm>200
+12. To list all record with job=’Clerk’ or sal>2000
+13. To list all the record with sal=1250 or 1100 
+14. To list all employees with sal>1250 and <2850
+15. To list all employees with sal not >1250 and <2850
+16. Retrieve the details (Name, Salary and dept no) of the emp who are working in department code 20
+17. Display the total salary of all employees . Total salary will be calculated as sal+comm+sal*0.10
+
+ 
+

@@ -1,0 +1,47 @@
+select count(*)
+from emp;
+
+select sum(comm)
+from emp;
+
+select   count(*)
+from emp;
+ 
+select  deptno,count(*)
+from emp
+group by deptno;
+
+select  deptno, count(*)
+from emp
+where deptno=30
+group by deptno;
+
+select deptno,sum(sal)
+from emp
+group by deptno;
+
+select  deptno, count(*)
+from emp
+where deptno=30
+group by deptno;
+
+select deptno,count(*)
+from emp
+group by deptno
+having count(*)>=5;
+
+select ename, sal
+from emp
+order by sal;
+
+select ename, job,sal
+from emp
+order by job,sal;
+
+select ename, job,sal
+from emp
+order by job asc,sal desc;
+
+select ename, comm
+from emp
+order by comm desc;

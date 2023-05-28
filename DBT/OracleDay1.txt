@@ -1,0 +1,23 @@
+create table employee
+(
+eno number,
+ename varchar2(15),
+sal number(8,2)
+);
+
+describe employee;
+
+insert into
+ema',5000);
+insert into employee
+values(2,'Samir',15000);
+insert into employee(eno,ename)
+values(3,'Raj');
+insert into employee(eno,sal)
+values(4,5000);
+
+commit;
+
+delete 
+from employee
+where eno=4;

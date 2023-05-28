@@ -1,0 +1,56 @@
+1. Display employee name who is earning maximunm salary.  
+ans:- select ename from emp where sal=(select max(sal) from emp);
+
+2. Find all employees who work in the department where martin works.
+ans:- select ename from emp where deptno=(select deptno from emp where ename='MARTIN');
+ 
+3. Find all employees who work in the department where Smith works or Allen works
+ans:- select ename from emp where deptno = any (select deptno from emp where ename in('SMITH','ALLEN'));
+
+4. Display all who earn more than Allen or Smith.
+ans:-select ename, sal from emp where sal>any (select sal from emp where ename in ('ALLEN', 'SMITH'));
+
+5. Delete all employees who work in Smith's dept and earn more than 1200 as a sal.
+ans:- delete from emp where deptno= (select deptno from emp where ename='SMITH') and sal > 1200;
+
+6. Change the sal of Smith to same as Jones.
+ans:-  update emp set sal=(select  sal from emp where ename='JONES') where ename='SMITH';
+
+7. From the emp table, write a SQL query to find out which employees have the same job as the employee whose 
+   empno is 7499. Return ename,job,deptno.
+ans:- select ename,job,deptno from emp where job=(select job from emp where empno=7499);
+
+8. From the emp table, write a SQL query to find those employees who receive a higher salary than the employee 
+   with eno 7499. Return ename,job,deptno,sal.
+ans:-select ename,job,deptno from emp where sal>(select sal from emp where empno=7499) ; 
+
+9. From the emp table, write a SQL query to find those employees whose salary matches the lowest salary of any 
+    of the departments. Return name, and department ID.   
+ans:- select ename,deptno,sal from emp where sal=(select min(sal) from emp); 
+
+10.From the emp table, write a SQL query to find those employees who earn more than the average salary of employees. Return
+    employee ID,  name,sal.   
+ans:- select empno,ename,sal from emp where sal>(select avg(sal) from emp); 
+
+11.From the emp table, write a SQL query to find those employees who report to that manager whose name
+   starts with  ‘F’. Return employee ID,  name,sal.     
+ans:- select ename from emp where mgr=(select empno from emp where regexp_like (ename,'^F'));
+
+12.  Find employees who earn salary more than the avg sal of their dept.
+ans:-
+
+13. From the emp table , write a SQL query to find those employees whose salary falls within the range of the smallest
+    salary and 2500. Return all the fields. 
+ans:-select * from emp where sal between (select min(sal) from emp) and 2500;
+ 
+14. Display all employees with sal more than his manager's sal.
+ans:-
+
+15. Display all employees earning salary more than at least one managers.
+ans:- select * from emp where sal> (select sal from emp where job='MANAGER') ;
+
+16. Dispaly all employees earning salary more than all the analysts.
+ans:- select * from emp where sal > (select max(sal) from emp where job='ANALYSTS');
+ 
+17. Display all employees who are not managers. 
+ans:-select * from emp where job<>( select jon from emp where job='MANAGER'); 

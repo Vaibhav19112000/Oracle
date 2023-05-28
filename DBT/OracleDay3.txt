@@ -1,0 +1,86 @@
+create table cat
+(cid number primary key,
+ cname varchar2(15)
+);
+
+insert into cat
+values (10,'stationary');
+insert into cat
+values (20,'clothing');
+insert into cat
+values (30,'food');
+insert into cat
+values (40,'electronics');
+
+create table product
+(pid number,
+ pname varchar2(15),
+ pcid number,
+ constraint pk_pid primary key(pid),
+ constraint fk foreign key(pcid) references cat(cid) on delete set null
+);  
+
+insert into product
+values(1,'Pen',10);
+insert into product
+values(2,'Eraser',10);
+insert into product
+values(3,'Crayons',10);
+insert into product
+values(4,'Shoes',20);
+insert into product
+values(5,'Biscuits',30);
+
+delete 
+from cat
+where cid=10;
+
+update product
+set pcid=10
+where pcid is null;
+
+create table product
+(pid number,
+ pname varchar2(15),
+ pcid number,
+ constraint pk_pid primary key(pid),
+ constraint fk foreign key(pcid) references cat(cid) on delete cascade
+); 
+
+Regular expressions 
+
+^ first char
+$ last char
+. single char
+.* set of char
+[AMS] from A M S
+
+all names startin with A
+select * 
+from emp
+where regexp_like(ename,'^A');
+
+names ending with R
+select * 
+from emp
+where regexp_like(ename,'R$');
+
+select * 
+from emp
+where regexp_like(ename,'^[AMS]');
+
+starts with M ,L at third place ends with R
+select * 
+from emp
+where regexp_like(ename,'^M.L.*R$');
+
+which do not start with A
+select * 
+from emp
+where regexp_like(ename,'^[^AMS]');
+
+starts with A, ends with N or starts with M and ends with R
+or starts with S and ends with H
+select * 
+from emp
+where regexp_like(ename,'^A.*N$|^M.*R$|^S.*H$');

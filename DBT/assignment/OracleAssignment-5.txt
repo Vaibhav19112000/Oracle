@@ -1,0 +1,31 @@
+1) Calculate annual salary for all employees.
+   anual sal=sal*12
+2) List all managers working in dept 10.
+3) List the employees in dept 20 and 30 who did not get any commission.
+4) Display the number of employees who has got the commission.
+5) Count number of clerks in dept 10 and 20.
+6) List Department wise total  salary.
+7) List department wise total sal only if the total sal is > 20000.
+8) Display job wise sum of salary excluding dept 30 only if the sum salary is > 5000.
+9) Display job wise max sal only for managers, clerks, salesman working in dept 10 and 20. Sort the data by des order of the max salary.
+10) Display job wise number of employees in all the department with total salary > 3000
+11) Display the department number having atleast 4 employees in it.
+12) Display the department having saleman in it.
+13) Display all allocated jobs from emp table. 
+14) Display name starting with upper case letter and job starting with upper case letter for all employees.
+    e.g Smith Clerk
+15) Display ename and it's length for all employees.
+    e.g SMITH 5
+16) Display first 3 characters of ename in lower case and rest everything in upper case. 
+    e.g smiTH
+17) Display last 3 letters of name.
+18) Generate an email-id for all employees and display. Email id is generated as follows
+    first 3 letters of name in lower case + last 2 letters of job in lower case + @knowit.com
+    eg name=SMITH   job=CLERK  
+    email-id = smirk@knowit.com
+19) Increase the salary by 10% in the database for all employees having experience more than 40 years  
+20) Implement following using case statement. Use data from emp database.
+    If comm is null ‘need improvement’ If <500 “ok” If >=500 and < 1000 ‘good' ‘Excellent'
+21) From the emp table, write a SQL query to find those employees whose salary is in the range of 1000, and 3000
+   (Begin and end values included.). Return all the fields.
+ 
